@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Coleen";
+  src: url('../fonts/coleen.ttf');
+}
+
+.side-menu {
+  width: 120px;
+  position: fixed;
+  left: -120px;
+  background: #000000;
+  text-align: center;
+  z-index: 9999;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.side-menu li a, li a:hover {
+  font-family: Coleen;
+  color: #ffffff;
+  font-size: 25px;
+  text-decoration:none;
+}
+
+.top-cups {
+  background-image: url('../images/cups_horizontal.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 980px;
+  width: 100%;
+  border-bottom: solid 5px;
+}
+
+.icon-menu {
+  position:fixed;
+  padding: 70px 0px 0px 50px;
+  color: #ffffff;
+  font-family: Coleen;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.logo-top {
+  background-image: url(../images/logo.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left:40%;
+  height:148px;
+  width:381px;
+}
+
+.hide-menu {
+  text-align: center;
+  font-size: 25px;
+  margin: 30px 0px 20px 0px;
+  color: #ffffff;
+}
+
+.beers {
+  border-top: solid 25px0px;
+  color: black;
+}

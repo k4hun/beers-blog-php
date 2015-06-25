@@ -1,0 +1,171 @@
+.container {
+  font-family: "Verdana";
+  font-size: 15px;
+}
+
+.menu {
+  text-align: center;
+  font-family: "Coleen";
+  font-size: 25px;
+  background: #421127;
+  padding-top: 10px;
+
+  a, a:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar, .logo_img, .menu {
+  height: 148px;
+}
+
+.logo_img {
+  padding: 0px;
+  display: block;
+  width: 381px;
+}
+
+.main-content {
+  margin-top:30px;
+}
+
+.beers-slider {
+  height: 700px;
+}
+
+.slider-nav {
+  margin-bottom: 10px;
+}
+
+.slider-side-left, .slider-side-right {
+  padding-top: 300px
+}
+
+.slider-item {
+  display: none;
+}
+
+.content-header {
+  font-family: "Coleen";
+  margin-bottom: 15px;
+}
+
+.content-header .text-center {
+   font-size: 120px;
+  
+}
+
+.h2-header {
+  font-family: "Coleen";
+  text-align: center;
+}
+
+#beers {
+  background-image: url(../images/beers.jpg);  
+  background-position: 50% 15%;
+}
+
+#tasted {
+  background-image: url(../images/tasted.jpg);  
+  background-position: 50% 75%;
+}
+
+#history {
+  background-image: url(../images/history.jpg);  
+  background-position: 50% 55%;
+}
+
+#about {
+  background-image: url(../images/about.jpg);  
+  background-position: 50% 55%;
+}
+
+#shops {
+  background-image: url(../images/shops.jpg);  
+  background-position: 50% 40%;
+}
+
+#contact {
+  background-image: url(../images/contact.jpg);  
+  background-position: 50% 25%;
+}
+
+#tasted, #history, #beers, #about, #shops, #contact {
+  border: solid 2px;
+  border-color: #000000;  
+  background-size: cover;
+  height: 300px;
+  padding-top: 80px;
+  color: #fe5f35;
+  font-size: 100px;  
+  text-shadow: 2px 2px #000000;
+
+}
+
+#tasted_list { 
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0px;
+}
+#tasted_list a {     
+    color: black;  
+}
+#tasted_list a:hover {
+    text-decoration: none;
+    color: #fe5f35;
+}
+#tasted_list li {
+    padding-bottom: 5px;
+}
+
+.ingredients {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.styles {
+  margin-top: 148px;
+  background: #421127;
+  color: white;
+  a {
+   color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #fe5f35;
+  }
+  ul {
+    padding-left: 0px;
+    list-style-type: none;
+    text-align: center;
+  }
+}
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
