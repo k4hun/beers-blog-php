@@ -1,0 +1,1 @@
+<h2 class='h2-header' id='shops'>Shops</h2>
