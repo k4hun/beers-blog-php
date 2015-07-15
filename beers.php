@@ -44,3 +44,21 @@
 </div>
 <hr>
 <h2 class='h2-header' id='tasted'>Already tasted</h2>
+<ul id='tasted_list'>
+	<div class='row'>
+		<?php
+			$tasted = Style::getAll();
+			$row = 1;
+			foreach ($tasted as $style) {
+				$beers = count(Style::getBeers($style->id));
+				echo "<div class='col-md-4'>
+						<li>". $style->name. " <span class='badge'>". $beers ."</span></li>
+					</div>";
+				if($row % 3 == 0) {
+					echo "</div><div class='row'>";
+				}
+			$row++;
+			}
+		?>
+	</div>
+</ul>
