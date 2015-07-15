@@ -3,7 +3,6 @@ var timer1 = 0;
 var timer2 = 0;
  
 function startSlider() {
-  $('#slide'+num).fadeIn('500');
   timer1 = setTimeout("changeSlide()", 500);
 }
 

@@ -5,7 +5,7 @@
 <!-- Latest compiled and minified CSS -->
 
 <link rel="stylesheet" href="assets/stylesheets/styles.css">
-<link rel="stylesheet" href="assets/stylesheets/beers.scss">
+<link rel="stylesheet" href="assets/stylesheets/beers.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
@@ -16,7 +16,7 @@
 
 </head>
 
-<body onload: 'startSlider()'>
+<body onload='startSlider()'>
     <div class='side-menu'>
      	<div class='hide-menu'>
         	<div class='glyphicon glyphicon-arrow-left'></div>
