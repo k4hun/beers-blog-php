@@ -20,7 +20,7 @@
 				$recent = Beer::getLimited(3); 
 				$slide = 0;
 				foreach ($recent as $val) {
-					echo "<div class='slider-item' id='slide$slide'><img height='600' src='uploads/$val->photo_url' width='400' alt='slide1'/></div>";
+					echo "<div class='slider-item' id='slide$slide'><img height='600' src='uploads/$val->photo_url' width='450' alt='slide1'/></div>";
 					$slide++;
 				}
 			?>
@@ -44,15 +44,47 @@
 </div>
 <hr>
 <h2 class='h2-header' id='tasted'>Already tasted</h2>
-<ul id='tasted_list'>
+<div class='container'>
+	<ul id='tasted_list'>
+		<div class='row'>
+			<?php
+				$tasted = Style::getAll();
+				$row = 1;
+				foreach ($tasted as $style) {
+					$beers = count(Style::getBeers($style->id));
+					echo "<div class='col-md-4'>
+							<li>". $style->name. " <span class='badge'>". $beers ."</span></li>
+						</div>";
+					if($row % 3 == 0) {
+						echo "</div><div class='row'>";
+					}
+				$row++;
+				}
+			?>
+		</div>
+	</ul>
+
 	<div class='row'>
 		<?php
-			$tasted = Style::getAll();
+			$beers = Beer::getAll();
 			$row = 1;
-			foreach ($tasted as $style) {
-				$beers = count(Style::getBeers($style->id));
+			foreach ($beers as $beer) {
+				$style = Beer::getStyle($beer->style_id);
+				$brewery = Beer::getBrewery($beer->brewery_id);
 				echo "<div class='col-md-4'>
-						<li>". $style->name. " <span class='badge'>". $beers ."</span></li>
+						<div class='thumbnail'>
+							<img class='img-thumbnail' height='600' src='uploads/$beer->photo_url' width='450'/>
+							<div class='caption'>
+								<h3>$beer->name</h3>
+								<h4>$style->name from $brewery->name</h4>
+								<p>Rating: ";
+									for($i=0; $i<$beer->rating; $i++){
+										echo "<img src='assets/images/rate_star.png' height='20' width='20'/>";
+									}
+								echo "</p>
+								<p>$beer->description</p>
+							</div>
+						</div>
 					</div>";
 				if($row % 3 == 0) {
 					echo "</div><div class='row'>";
@@ -61,4 +93,4 @@
 			}
 		?>
 	</div>
-</ul>
+</div>
