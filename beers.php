@@ -16,9 +16,17 @@
 		</div>
 		<div class='col-md-2 slider-side-left'><a class="btn btn-default" href="javascript:setSlide("prev")">&lt;</a></div>
 		<div class='col-md-8'>
-			<div class='slider-item' id='slide0'><img height="600" src="" width="400" alt='slide1'/></div>
+			<?php 
+				$recent = Beer::getLimited(3); 
+				$slide = 0;
+				foreach ($recent as $val) {
+					echo "<div class='slider-item' id='slide$slide'><img height='600' src='uploads/$val->photo_url' width='400' alt='slide1'/></div>";
+					$slide++;
+				}
+			?>
+			<!-- <div class='slider-item' id='slide0'><img height="600" src="uploads/<?php ?>" width="400" alt='slide1'/></div>
 			<div class='slider-item' id='slide1'><img height="600" src="" width="400" alt='slide2'/></div>
-			<div class='slider-item' id='slide2'><img height="600" src="" width="400" alt='slide3'/></div>
+			<div class='slider-item' id='slide2'><img height="600" src="" width="400" alt='slide3'/></div> -->
 		</div>
 		<div class='col-md-2 slider-side-right'><a class="btn btn-default" href="javascript:setSlide("next")">&gt;</a></div>
 	</div>

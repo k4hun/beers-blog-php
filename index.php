@@ -1,3 +1,10 @@
+<?php
+
+    require_once 'models/beer.php';
+    require_once 'models/style.php';
+    require_once 'models/brewery.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>

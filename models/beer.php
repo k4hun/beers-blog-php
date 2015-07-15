@@ -25,6 +25,11 @@
 			return self::getBySql($sql);
     	}
 
+        public static function getLimited($limit) {
+            $sql = sprintf("SELECT * FROM beers ORDER BY created_at DESC LIMIT %d", $limit);
+            return self::getBySql($sql);
+        }
+
     	public static function getBrewery($id) {
     		$id = (int)$id;
 			$sql = sprintf("SELECT name FROM breweries WHERE id = %d", $id);
