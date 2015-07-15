@@ -20,25 +20,31 @@
 			require_once '../../models/style.php';
 			require_once '../../models/brewery.php';
 
-			print_r($_POST);
-			if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['style_id']) && isset($_POST['brewery_id']) && isset($_POST['rating'])) {
+			if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['style_id']) && isset($_POST['brewery_id']) && isset($_POST['rating']) && isset($_FILES['photo']['name'])) {
 				$name = $_POST['name'];
 				$description = $_POST['description'];
 				$style = $_POST['style_id'];
 				$brewery = $_POST['brewery_id'];
 				$rating = $_POST['rating'];
+				
+				$photo_name = $_FILES['photo']['name'];
+				$photo_tmp = $_FILES['photo']['tmp_name'];
+				$check = getimagesize($_FILES["photo"]["tmp_name"]);
 
-				if(empty($name) || empty($description) || empty($style) || empty($brewery) || empty($rating)) {
+				if($check == false) {
+					echo "<br><div class='alert alert-info col-md-8'>File is not an image!</div>";
+				} else if(empty($name) || empty($description) || empty($style) || empty($brewery) || empty($rating)) {
 					echo "<br><div class='alert alert-info col-md-8'>All fields are required!</div>";
 				} else {
+					move_uploaded_file($photo_tmp, '../../uploads/'.$photo_name);
 					$beer = new Beer();
-					if($beer->insert($name, $style, $description, $rating, $brewery)) {
+					if($beer->insert($name, $style, $description, $rating, $brewery, $photo_name)) {
 						header ('location: index.php');
 					}
 				}
-			}
+			} else { echo "<div class='well'>Fill all fields</div>"; }
 		?>
-		<form id='new-style-form' action='', method='POST'>
+		<form id='new-style-form' action='', method='POST' enctype="multipart/form-data">
 			<div class="col-md-8">
 				<table class="table table-striped">
 					<tr>
@@ -86,6 +92,10 @@
 								}
 							?>
 						</td>
+					</tr>
+					<tr>
+						<th>Photo:</th>
+						<td><input type='file', name='photo', class='form-control'></td>
 					</tr>
 				</table>
 				<input type='submit', value='Add' class='btn btn-primary'>

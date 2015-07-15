@@ -18,7 +18,7 @@
 		<?php 
 			require_once '../../models/beer.php';
 		?>
-		<h3><a href="add.php">Add new style</a></h3>
+		<h3><a href="add.php">Add new beer</a></h3>
 		<div class="col-md-8">
 			<table class="table table-striped">
 				<tr>

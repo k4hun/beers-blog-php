@@ -37,9 +37,9 @@
 			return self::getBySql($sql);
     	}
 
-    	public function insert($name, $style, $description, $rating, $brewery) {
+    	public function insert($name, $style, $description, $rating, $brewery, $photo_url) {
     		$db = new Database();
-    		$dml = sprintf("INSERT INTO beers (name, style_id, description, rating, brewery_id) VALUES ('%s', '%d', '%s', '%d', '%d')", $name, $style, $description, $rating, $brewery);
+    		$dml = sprintf("INSERT INTO beers (name, style_id, description, rating, brewery_id, photo_url) VALUES ('%s', '%d', '%s', '%d', '%d', '%s')", $name, $style, $description, $rating, $brewery, $photo_url);
     		return $db->executeDml($dml);
     	}
 
