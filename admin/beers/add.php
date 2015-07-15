@@ -1,3 +1,4 @@
+<?php require('../session/check_user.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,24 @@
 			require_once '../../models/beer.php';
 			require_once '../../models/style.php';
 			require_once '../../models/brewery.php';
+
+			print_r($_POST);
+			if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['style_id']) && isset($_POST['brewery_id']) && isset($_POST['rating'])) {
+				$name = $_POST['name'];
+				$description = $_POST['description'];
+				$style = $_POST['style_id'];
+				$brewery = $_POST['brewery_id'];
+				$rating = $_POST['rating'];
+
+				if(empty($name) || empty($description) || empty($style) || empty($brewery) || empty($rating)) {
+					echo "<br><div class='alert alert-info col-md-8'>All fields are required!</div>";
+				} else {
+					$beer = new Beer();
+					if($beer->insert($name, $style, $description, $rating, $brewery)) {
+						header ('location: index.php');
+					}
+				}
+			}
 		?>
 		<form id='new-style-form' action='', method='POST'>
 			<div class="col-md-8">
@@ -73,20 +92,6 @@
 				<a class='btn btn-warning' href="index.php">Back</a>
 			</div>
 		</form>
-
-		<?php 
-			if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['style_id']) && isset($_POST['brewery_id']) && isset($_POST['rating'])) {
-				$name = $_POST['name'];
-				$description = $_POST['description'];
-				$style = $_POST['style_id'];
-				$brewery = $_POST['brewery_id'];
-				$rating = $_POST['rating'];
-				$beer = new Beer();
-				if($beer->insert($name, $style, $description, $rating, $brewery)) {
-					header ('location: index.php');
-				}
-			}
-		?>
 	</div>
 			
 </body>

@@ -1,3 +1,4 @@
+<?php require('../session/check_user.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>

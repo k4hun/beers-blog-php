@@ -1,3 +1,4 @@
+<?php require('../session/check_user.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,19 @@
 		<h2>Add brewery</h2>
 		<?php 
 			require_once "../../models/brewery.php"; 
+			if(isset($_POST['name'])) {
+				$name = $_POST['name'];
+				
+				if(empty($name)) {
+					echo "<br><div class='alert alert-info col-md-8'>Fill the name!</div>";
+				} else {
+					$brewery = new Brewery();
+					if($brewery->insert($name)) {
+						header ('location: index.php');
+						die();
+					}
+				}
+			}
 		?>
 		<form action='', method='POST'>
 			<div class="col-md-8">
@@ -29,19 +43,6 @@
 				<a class='btn btn-warning' href="index.php">Back</a>
 			</div>
 		</form>
-
-		<?php 
-
-			if(isset($_POST['name'])) {
-				$name = $_POST['name'];
-				$brewery = new Brewery();
-				if($brewery->insert($name)) {
-					header ('location: index.php');
-					die();
-				}
-			}
-
-		?>
 	</div>
 			
 </body>

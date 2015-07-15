@@ -1,3 +1,4 @@
+<?php require('../session/check_user.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,22 @@
 		<h2>Update brewery</h2>
 		<?php 
 			require_once '../../models/style.php';
+			if(isset($_POST['newName']) && isset($_POST['description']) && isset($_POST['id'])) {
+				$id = $_POST['id'];
+				$newName = $_POST['newName'];
+				$description = $_POST['description'];
+
+				if(empty($newName) || empty($description) || empty($id)) {
+					echo "<br><div class='alert alert-info col-md-8'>All fields are required!</div>";
+				} else {
+					$style = new Style();
+					echo "asdasd";
+					if($up = $style->update($id, $newName, $description)) {
+						header ('Location: index.php');
+						die();
+					}
+				}
+			}
 		?>
 		<form id='new-style-form' action='', method='POST'>
 			<div class="col-md-8">
@@ -38,20 +55,6 @@
 				<a class='btn btn-warning' href="index.php">Back</a>
 			</div>
 		</form>
-
-		<?php 
-
-			if(isset($_POST['newName']) && isset($_POST['description']) && isset($_POST['id'])) {
-				$id = $_POST['id'];
-				$newName = $_POST['newName'];
-				$description = $_POST['description'];
-				$style = new Style();
-				echo "asdasd";
-				if($up = $style->update($id, $newName, $description)) {
-					header ('Location: index.php');
-				}
-			}
-		?>
 	</div>
 			
 </body>

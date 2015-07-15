@@ -1,4 +1,5 @@
 <?php 
+	require('../session/check_user.php');
 	require_once '../../models/brewery.php';
 	if(isset($_GET['id'])) {
 		$id = $_GET['id'];
