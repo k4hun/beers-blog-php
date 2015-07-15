@@ -28,6 +28,7 @@
 					<th>Style</th>
 					<th>Brewery</th>
 					<th>Rating</th>
+					<th>Photo</th>
 					<th>Actions</th>
 				</tr>
 				<?php 
@@ -42,6 +43,7 @@
 							echo "<td>$style->name</td>";							
 							echo "<td>$brewery->name</td>";
 							echo "<td>$beer->rating</td>";
+							echo "<td><img height='150' width='100' src='../../uploads/". $beer->photo_url ."'</img></td>";
 							echo "<td>
 									<form action='update.php?id=$beer->id' method='POST'>
 										<input type='hidden' name='name' value=\"$beer->name\">
