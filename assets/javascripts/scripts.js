@@ -57,7 +57,7 @@ var main = function() {
 
 $(document).scroll(function () {
     if ($(this).scrollTop() > 830) {
-        $(".icon-menu").css('color', '#000000');
+        $(".icon-menu").css('color', '#fe5f35');
     }
     else {
         $(".icon-menu").css('color', '#ffffff')

@@ -19,7 +19,7 @@
 
 .side-menu li a, li a:hover {
   font-family: Coleen;
-  color: #ffffff;
+  color: #fe5f35;
   font-size: 25px;
   text-decoration:none;
 }
@@ -41,6 +41,7 @@
   font-size: 50px;
   cursor: pointer;
   z-index: 9999;
+  text-shadow: 2px 2px #000000;
 }
 
 .logo-top {
