@@ -14,7 +14,7 @@
 			<a class="btn btn-default" href="javascript:setSlide(1)" id="slider-nav-1">2</a>
 			<a class="btn btn-default" href="javascript:setSlide(2)" id="slider-nav-2">3</a>
 		</div>
-		<div class='col-md-2 slider-side-left'><a class="btn btn-default" href="javascript:setSlide("prev")">&lt;</a></div>
+		<div class='col-md-2 slider-side-left'><a class="btn btn-default" href="javascript:setSlide('prev')">&lt;</a></div>
 		<div class='col-md-8'>
 			<?php 
 				$recent = Beer::getLimited(3); 
@@ -28,7 +28,7 @@
 			<div class='slider-item' id='slide1'><img height="600" src="" width="400" alt='slide2'/></div>
 			<div class='slider-item' id='slide2'><img height="600" src="" width="400" alt='slide3'/></div> -->
 		</div>
-		<div class='col-md-2 slider-side-right'><a class="btn btn-default" href="javascript:setSlide("next")">&gt;</a></div>
+		<div class='col-md-2 slider-side-right'><a class="btn btn-default" href="javascript:setSlide('next')">&gt;</a></div>
 	</div>
 </div>
 <hr>
@@ -53,7 +53,7 @@
 				foreach ($tasted as $style) {
 					$beers = count(Style::getBeers($style->id));
 					echo "<div class='col-md-4'>
-							<li>". $style->name. " <span class='badge'>". $beers ."</span></li>
+							<li><a href='". $_SERVER['PHP_SELF'] ."?style=". $style->id ."#tasted'>". $style->name. "</a> <span class='badge'>". $beers ."</span></li>
 						</div>";
 					if($row % 3 == 0) {
 						echo "</div><div class='row'>";
@@ -67,6 +67,7 @@
 	<div class='row'>
 		<?php
 			$beers = Beer::getAll();
+			if(isset($_GET['style'])) $beers = Beer::getByStyle($_GET['style']);
 			$row = 1;
 			foreach ($beers as $beer) {
 				$style = Beer::getStyle($beer->style_id);

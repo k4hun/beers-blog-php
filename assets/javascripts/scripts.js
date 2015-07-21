@@ -11,6 +11,7 @@ function setSlide(id) {
   clearTimeout(timer2);
 
   hideSlide();
+
   switch(id) {
     case "next":
       break;
@@ -56,13 +57,31 @@ var main = function() {
 };
 
 $(document).scroll(function () {
-    if ($(this).scrollTop() > 830) {
-        $(".icon-menu").css('color', '#fe5f35');
+    if ($(this).scrollTop() > 10) {
+        $("#menu-top").animate({
+          height: '78px'
+        }, 200);
+
+        $(".menu-top img").animate({
+          height: '75px'
+        }, 200);
+        $(".menu-top p").animate({
+          paddingTop: '0px'
+        }, 200);
     }
-    else {
-        $(".icon-menu").css('color', '#ffffff')
+    else if ($(this).scrollTop() < 10) {
+        $("#menu-top").animate({
+          height: '148px'
+        }, 200);
+
+        $(".menu-top img").animate({
+          height: '148px'
+        }, 200);
+        $(".menu-top p").animate({
+          paddingTop: '30px'
+        }, 200);
     }
 });
 
 $(document).ready(main);
-$(document).on('page:load', main)
+$(document).on('page:load', main);

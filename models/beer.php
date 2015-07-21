@@ -25,6 +25,12 @@
 			return self::getBySql($sql);
     	}
 
+        public static function getByStyle($id) {
+            $id = (int)$id;
+            $sql = sprintf("SELECT * FROM beers WHERE style_id = %d", $id);
+            return self::getBySql($sql);
+        }
+
         public static function getLimited($limit) {
             $sql = sprintf("SELECT * FROM beers ORDER BY created_at DESC LIMIT %d", $limit);
             return self::getBySql($sql);

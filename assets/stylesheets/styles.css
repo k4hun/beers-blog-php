@@ -3,65 +3,191 @@
   src: url('../fonts/coleen.ttf');
 }
 
-.side-menu {
-  width: 120px;
-  position: fixed;
-  left: -120px;
-  background: #000000;
-  text-align: center;
-  z-index: 9999;
+body {
 }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0px;
+#menu-top {
+	position: fixed;
+	width:100%;
+	height: 148px;
+	background: rgba(66, 17, 39, 1);
+	z-index: 9999;
 }
 
-.side-menu li a, li a:hover {
-  font-family: Coleen;
-  color: #fe5f35;
-  font-size: 25px;
-  text-decoration:none;
+.menu-top {
+	float: left;
+	font-family: Coleen;
+	font-size: 50px;
+	color: #ffffff;
+	width: 50%;
 }
 
-.top-cups {
-  background-image: url('../images/cups_horizontal.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 980px;
-  width: 100%;
-  border-bottom: solid 5px;
+.menu-top img {
+	padding-left: 20%;
 }
 
-.icon-menu {
-  position:fixed;
-  padding: 70px 0px 0px 50px;
-  color: #ffffff;
-  font-family: Coleen;
-  font-size: 50px;
-  cursor: pointer;
-  z-index: 9999;
-  text-shadow: 2px 2px #000000;
+.menu-top p {
+	text-align: left;
+	padding-top: 30px;
 }
 
-.logo-top {
-  background-image: url(../images/logo.png);
-  background-size: cover;
-  position: absolute;
-  top: 50px;
-  left:40%;
-  height:148px;
-  width:381px;
+#container {
+	overflow: hidden;
+	padding: 30px 20% 0px 20%;
+	background-color: rgba(230, 230, 230, 1);
 }
 
-.hide-menu {
-  text-align: center;
-  font-size: 25px;
-  margin: 30px 0px 20px 0px;
-  color: #ffffff;
+#sidebar, #beers{
+	float: left;
 }
 
-.beers {
-  border-top: solid 25px0px;
-  color: black;
+#top {
+	height: 600px;
+	background-image: url(../images/tasted.jpg);
+	background-size: cover;
+	background-position: 0% 80%;
+}
+
+#beers {
+	width: 70%;
+	padding: 10px 20px 20px 20px;
+}
+
+#beers .beer {
+	padding: 10px 20px 20px 20px;
+	background-color: #ffffff;
+	margin-bottom: 20px;
+	min-height: 690px;
+	height: auto;
+	box-shadow: 5px 5px 15px #888888;
+}
+
+.beername {
+	font-family: coleen;
+	text-transform: capitalize;
+	font-size: 60px;
+	text-align: center;
+}
+
+.beerstyle {
+	font-family: Helvetica;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.beer-content {
+	font-family: Verdana;
+	vertical-align: top;
+	display: inline-block;
+	width: 49%;
+	padding: 5px;
+}
+
+.beerimg {
+	width: 100%;
+}
+
+.beerrating {
+}
+
+.beerdescription {
+}
+
+#sidebar {
+	width: 30%;
+	padding: 10px;
+}
+
+.slider-item {
+	padding-top: 8px;
+	width: 450px;
+	display: none;
+ 	position: relative;
+}
+
+#item-text {
+	position: absolute; 
+	bottom: 0; 
+	width: 100%; 
+	height:70px;  
+	background-color: rgba(0,0,0,0.7);
+}
+
+#item-text p {
+	font-family: Coleen;
+	font-size: 40px;
+	color: #ffffff;
+	text-align: center;
+
+}
+
+#about, #styles, #info {
+	background-color: #ffffff;
+	position: relative;
+	box-shadow: 5px 5px 15px #888888;
+}
+
+#aboutbg {
+	position: relative;
+	width:100%;
+    height: 100%;
+}
+
+#aboutphoto {
+	border: 3px solid white;
+	position: absolute;
+	top:110px;
+	left: 10px;
+	width: 50%;
+}
+
+#about h2, #styles h2{
+	padding-top: 10px;
+	font-family: Coleen;
+	font-size: 40px;
+	color: rgba(66, 17, 39, 1);
+	text-align: center; 
+}
+
+#about hr, #styles hr {
+	width: 80%;
+	height: 5px;
+}
+
+#about p {
+	padding: 0px 10px 15px 10px;
+	text-align: center;
+	font-family: Verdana;
+}
+
+#styles ul {
+	font-size: 20px;
+	list-style: none;
+	padding-bottom: 20px;
+}
+
+#styles li:before {
+	margin: 0px;
+	padding: 0px;
+	content: "> ";
+	font-family: Coleen;
+}
+
+#info-photo {
+	padding: 20px;
+	width: 100%;
+	height: 100%;
+}
+
+#footer {
+	height:100px;
+	background-color: rgba(66, 17, 39, 1);
+}
+
+#footer-text {
+	padding-top: 40px;
+	text-align: center;
+	font-family: Verdana;
+	color: #ffffff;
 }
